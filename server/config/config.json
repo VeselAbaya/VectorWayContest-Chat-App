@@ -1,0 +1,5 @@
+{
+  "PORT": 3030,
+  "MONGODB_URI": "mongodb://localhost:27017/chatApp",
+  "JWT_SECRET": "KaaUsCHAasdRANDOMNIHqwertySIMVOLOV"
+}
