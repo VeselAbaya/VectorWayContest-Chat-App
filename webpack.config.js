@@ -3,8 +3,8 @@ const path = require('path')
 
 module.exports = {
   entry: {
-    chat: ['babel-polyfill', './public/js/chat/chat.js'],
-    index: './public/js/join/index.js'
+    chat: ['babel-polyfill', './client/js/chat/chat.js'],
+    index: './client/js/join/index.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -26,12 +26,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: false,
       filename: 'chat.html',
-      template: 'public/html/chat.html'
+      template: 'client/html/chat.html'
     }),
     new HtmlWebpackPlugin({
       inject: false,
       filename: 'index.html',
-      template: 'public/html/index.html'
+      template: 'client/html/index.html'
     })
   ],
   devServer: {
