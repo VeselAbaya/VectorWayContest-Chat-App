@@ -1,7 +1,7 @@
-const mongoose = require('../mongoose')
-const validator = require('validator')
-const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
+const mongoose = require('../mongoose');
+const validator = require('validator');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 const UserSchema = new mongoose.Schema({
   email: {
@@ -39,58 +39,58 @@ const UserSchema = new mongoose.Schema({
       }
     }
   ]
-})
+});
 
 UserSchema.pre('save', function(next) {
   // bcrypt.genSalt(10, (err, salt) => {
   if (this.isModified('password')) {
     bcrypt.hash(this.password, 10, (err, hash) => {
-      this.password = hash
+      this.password = hash;
       next()
     })
   } else next()
-})
+});
 
 UserSchema.post('save', function(error, user, next) {
   if (!error)
-    next()
+    next();
 
   let duplicateUser = false;
   let duplicateEmail = false;
   User.find({name: this.name}, (err, user) => {
       if (err)
-        return next(err)
+        return next(err);
 
       if(user.length > 0)
-        duplicateUser = true
+        duplicateUser = true;
 
       User.find({email: this.email}, (err, user) => {
           if (err)
-            return next(err)
+            return next(err);
 
           if (user.length > 0)
-            duplicateEmail = true
+            duplicateEmail = true;
 
           if (duplicateUser || duplicateEmail) {
             next({duplicateUser, duplicateEmail})
           }
         })
     })
-})
+});
 
 UserSchema.methods.generateAuthToken = function() {
-  const access = 'auth'
+  const access = 'auth';
   const token = jwt.sign({
     _id: this._id.toHexString(),
     access
-  }, process.env.JWT_SECRET).toString()
+  }, process.env.JWT_SECRET).toString();
 
-  this.tokens = this.tokens.concat([{access, token}])
+  this.tokens = this.tokens.concat([{access, token}]);
   return this.save().then(() => token)
-}
+};
 
 UserSchema.statics.findByToken = function(token) {
-  let decoded
+  let decoded;
   try {
     decoded = jwt.verify(token, process.env.JWT_SECRET)
   } catch (err) {
@@ -102,17 +102,17 @@ UserSchema.statics.findByToken = function(token) {
     'tokens.token': token,
     'tokens.access': 'auth'
   })
-}
+};
 
 UserSchema.statics.findByCredentials = function(email, password) {
   return User.findOne({email}).then(user => {
     if (!user)
-      return Promise.reject()
+      return Promise.reject();
 
     return new Promise((resolve, reject) => {
       bcrypt.compare(password, user.password, (err, res) => {
         if (res)
-          resolve(user)
+          resolve(user);
         else
           reject()
       })
@@ -120,8 +120,8 @@ UserSchema.statics.findByCredentials = function(email, password) {
   }).catch(err => {
     return Promise.reject()
   })
-}
+};
 
-const User = mongoose.model('User', UserSchema)
+const User = mongoose.model('User', UserSchema);
 
-module.exports = User
+module.exports = User;

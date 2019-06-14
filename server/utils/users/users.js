@@ -4,17 +4,17 @@ class Users {
   }
 
   addUser(id, name, room) {
-    const user = {id, name, room}
+    const user = {id, name, room};
     if (!this.users.find(user => user.name === name))
-      this.users.push(user)
+      this.users.push(user);
     return user
   }
 
   removeUser(id) {
-    const delIndex= this.users.findIndex(el => el.id === id)
-    const delUser = this.users[delIndex]
+    const delIndex= this.users.findIndex(el => el.id === id);
+    const delUser = this.users[delIndex];
     if (delIndex !== -1)
-      this.users.splice(delIndex, 1)
+      this.users.splice(delIndex, 1);
 
     return delUser
   }
@@ -25,10 +25,10 @@ class Users {
   }
 
   getUser(id) {
-    const index = this.users.findIndex(el => el.id === id)
+    const index = this.users.findIndex(el => el.id === id);
     return this.users[index]
   }
 }
 
-module.exports = {Users}
+module.exports = {Users};
 

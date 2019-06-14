@@ -24,4 +24,4 @@ export const elements = {
   joinNameError: document.querySelector('#join_form .form--group--error-name'),
   joinForm: document.querySelector('#join_form'),
   joinName: document.querySelector('#join_name')
-}
+};

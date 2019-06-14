@@ -3,23 +3,23 @@ import {elements} from "./elements"
 import {access} from "../access"
 
 const signUp = () => {
-  elements.formsWrapper.style.top = `${-2*462.5}px`
+  elements.formsWrapper.style.top = `${-2*462.5}px`;
   elements.forms.style.height = '600px'
-}
+};
 
 const logIn = () => {
-  elements.forms.style.height = '462.5px'
+  elements.forms.style.height = '462.5px';
   elements.formsWrapper.style.top = `${-462.5}px`
-}
+};
 
 const join = () => {
-  elements.forms.style.height = '462.5px'
+  elements.forms.style.height = '462.5px';
   elements.formsWrapper.style.top = 0
-}
+};
 
 export const popup = {
   signUp, logIn, join
-}
+};
 
 export const logOutClicked = () => {
   // logout
@@ -31,15 +31,15 @@ export const logOutClicked = () => {
     headers: {'x-auth': access.token}
   })
     .then(res => {
-      access.token = ''
+      access.token = '';
 
       // change UI
-      elements.joinName.value = ''
-      elements.logOutBtn.style.display = 'none'
-      elements.popupLogInBtn.style.display = 'block'
+      elements.joinName.value = '';
+      elements.logOutBtn.style.display = 'none';
+      elements.popupLogInBtn.style.display = 'block';
       elements.popupSignUpBtn.style.display = 'block'
     })
     .catch(err => {
       alert(err)
     })
-}
+};

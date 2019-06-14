@@ -10,4 +10,4 @@ export const elements = {
   usersTitle: document.querySelector('.users--title'),
   usersIcon: document.querySelector('.menu__button i'),
   usersList: document.querySelector('.users--list')
-}
+};

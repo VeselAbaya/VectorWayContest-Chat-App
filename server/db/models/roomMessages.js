@@ -1,4 +1,4 @@
-const mongoose = require('../mongoose')
+const mongoose = require('../mongoose');
 
 const RoomMessagesSchema = new mongoose.Schema({
   name: {
@@ -24,8 +24,8 @@ const RoomMessagesSchema = new mongoose.Schema({
       }
     }
   ]
-})
+});
 
-const RoomMessages = mongoose.model('RoomMessages', RoomMessagesSchema)
+const RoomMessages = mongoose.model('RoomMessages', RoomMessagesSchema);
 
-module.exports = {RoomMessages}
+module.exports = {RoomMessages};

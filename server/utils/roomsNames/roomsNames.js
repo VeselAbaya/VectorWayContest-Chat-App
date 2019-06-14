@@ -1,4 +1,4 @@
-const queryString = require('query-string')
+const queryString = require('query-string');
 
 class RoomsNames {
   constructor () {
@@ -6,16 +6,16 @@ class RoomsNames {
   }
 
   getNames(roomName) {
-    const room = this.data.find(room => room.name === roomName.toLowerCase())
+    const room = this.data.find(room => room.name === roomName.toLowerCase());
     if (room)
       return room.names
   }
 
   addName(roomName, name) {
-    roomName = roomName.toLowerCase()
-    name = name.toLowerCase()
+    roomName = roomName.toLowerCase();
+    name = name.toLowerCase();
 
-    const roomNames = this.data.find(room => room.name === roomName)
+    const roomNames = this.data.find(room => room.name === roomName);
     if (!roomNames) {
       this.data.push({
         name: roomName,
@@ -27,16 +27,16 @@ class RoomsNames {
   }
 
   removeName(roomName, name) {
-    roomName = roomName.toLowerCase()
-    name = name.toLowerCase()
+    roomName = roomName.toLowerCase();
+    name = name.toLowerCase();
 
-    const roomNames = this.data.find(room => room.name === roomName)
+    const roomNames = this.data.find(room => room.name === roomName);
     if (roomNames) {
-      const index = roomNames.names.findIndex(userName => userName === name)
+      const index = roomNames.names.findIndex(userName => userName === name);
       roomNames.names.splice(index, 1)
     }
   }
 }
 
-const roomsNames = new RoomsNames()
-module.exports = roomsNames
+const roomsNames = new RoomsNames();
+module.exports = roomsNames;
