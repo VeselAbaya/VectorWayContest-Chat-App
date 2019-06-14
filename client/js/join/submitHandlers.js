@@ -1,6 +1,5 @@
 import axios from "axios"
 import {elements} from "./elements"
-import {access} from "../access"
 
 export const signUpHandler = (event) => {
   event.preventDefault();
@@ -14,7 +13,7 @@ export const signUpHandler = (event) => {
     .then(res => {
       // save x-auth token to the client
       const tokens = res.data.user.tokens;
-      access.token = tokens[tokens.length-1].token;
+      localStorage.setItem('token', tokens[tokens.length-1].token);
 
       elements.joinName.value = elements.signUpName.value;
 
@@ -60,7 +59,7 @@ export const logInHandler = (event) => {
   axios.post('/login', {email, password})
     .then(res => {
       const tokens = res.data.user.tokens;
-      access.token = tokens[tokens.length-1].token;
+      localStorage.setItem('token', tokens[tokens.length-1].token);
 
       elements.logInEmail.value = '';
       elements.logInPassword.value = '';
@@ -90,7 +89,7 @@ export const joinHandler = async (event) => {
     thisAuthenticatedUser = await axios({
       url: '/users/me',
       method: 'get',
-      headers: {'x-auth': access.token}
+      headers: {'x-auth': localStorage.getItem('token')}
     });
 
     thisUserName = thisAuthenticatedUser.data.name.toLowerCase()

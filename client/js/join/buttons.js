@@ -1,6 +1,5 @@
 import axios from 'axios'
 import {elements} from "./elements"
-import {access} from "../access"
 
 const signUp = () => {
   elements.formsWrapper.style.top = `${-2*462.5}px`;
@@ -28,10 +27,10 @@ export const logOutClicked = () => {
   axios({
     url: '/logout',
     method: 'post',
-    headers: {'x-auth': access.token}
+    headers: {'x-auth': localStorage.getItem('token')}
   })
     .then(res => {
-      access.token = '';
+      localStorage.setItem('token', '');
 
       // change UI
       elements.joinName.value = '';
