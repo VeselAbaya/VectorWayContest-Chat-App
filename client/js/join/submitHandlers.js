@@ -37,12 +37,12 @@ export const signUpHandler = (event) => {
       if (validateObj) {
         if (validateObj.duplicateEmail) {
           elements.signUpEmailError.style.display = 'block';
-          elements.signUpEmail.classList.add('form--input-error')
+          elements.signUpEmail.classList.add('form-input--error')
         }
 
         if (validateObj.duplicateUser) {
           elements.signUpNameError.style.display = 'block';
-          elements.signUpName.classList.add('form--input-error')
+          elements.signUpName.classList.add('form-input--error')
         }
       }
     })
@@ -74,7 +74,6 @@ export const logInHandler = (event) => {
       elements.logOutBtn.style.display = 'block'
     })
     .catch(err => {
-      console.log(err);
       alert(err)
     })
 };
@@ -108,7 +107,7 @@ export const joinHandler = async (event) => {
     }
     else if (existingNames.includes(name)) {
       elements.joinNameError.style.display = 'block';
-      elements.joinName.classList.add('form--input-error');
+      elements.joinName.classList.add('form-input--error');
       return
     }
   }

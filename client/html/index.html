@@ -10,92 +10,89 @@
 </head>
 <body style="display: flex; justify-content: center; align-items: center">
   <div class="forms">
-    <div class="popup__btns">
-      <button type="button" class="popup__btns--join">
-        Join
-      </button><button type="button" class="popup__btns--login">
-        Log in
-      </button><button type="button" class="popup__btns--signup">
-        Sign up
-      </button><button type="button" class="log__out__btn">Log out</button>
+    <div class="forms__btns">
+      <button type="button" class="forms-btn forms-btn--join">Join</button>
+      <button type="button" class="forms-btn forms-btn--login">Log in</button>
+      <button type="button" class="forms-btn forms-btn--signup">Sign up</button>
+      <button type="button" class="forms-btn forms-btn--logout">Log out</button>
     </div>
 
     <div class="forms__wrapper">
       <!--JOIN FORM-->
       <form id="join_form" class="form" action="chat.html" autocomplete="off">
         <div style="display: flex; justify-content: center">
-          <h2 class="form--title">
+          <h2 class="form-title">
             Join a Chat
           </h2>
         </div>
-        <div class="form--group">
-          <label class="form--label" for="join_name">Display name</label>
-          <input class="form--input" type="text" id="join_name" name="name" required>
-          <p class="form--group--error form--group--error-name">User with this name is already exist</p>
+        <div class="form-group">
+          <label class="form-label" for="join_name">Display name</label>
+          <input class="form-input" type="text" id="join_name" name="name" required>
+          <p class="form-group__error form-group__error-name">User with this name is already exist</p>
         </div>
 
-        <div class="form--group">
-          <label class="form--label" for="join_room">Room name</label>
-          <input class="form--input" type="text" id="join_room" name="room" list="join_rooms" required>
+        <div class="form-group">
+          <label class="form-label" for="join_room">Room name</label>
+          <input class="form-input" type="text" id="join_room" name="room" list="join_rooms" required>
           <datalist id="join_rooms"></datalist>
         </div>
 
-        <div class="form--group">
-          <input class="form--join" type="submit" value="Join">
+        <div class="form-group">
+          <button class="form-submit" type="submit">Join</button>
         </div>
       </form>
 
       <!--LOG IN-->
       <form class="form" id="login_form" action="login" method="post">
         <div style="display: flex; justify-content: center">
-          <h2 class="form--title">
+          <h2 class="form-title">
             Log in
           </h2>
         </div>
-        <div class="form--group">
-          <label class="form--label" for="login_email">Email</label>
-          <input class="form--input" type="email" id="login_email" name="email" required>
+        <div class="form-group">
+          <label class="form-label" for="login_email">Email</label>
+          <input class="form-input" type="email" id="login_email" name="email" required>
         </div>
 
-        <div class="form--group">
-          <label class="form--label" for="login_password">Password</label>
-          <input class="form--input" type="password" id="login_password" name="email" required>
+        <div class="form-group">
+          <label class="form-label" for="login_password">Password</label>
+          <input class="form-input" type="password" id="login_password" name="email" required>
         </div>
 
-        <div class="form--group">
-          <input class="form--join" type="submit" value="Log in">
-          <p class="form--group--error form--group--error-submit">Account with this email is already exist</p>
+        <div class="form-group">
+          <button class="form-submit" type="submit">Log in</button>
+          <p class="form-group__error form-group__error-submit">Account with this email is already exist</p>
         </div>
       </form>
 
       <!--SIGN UP-->
       <form id="signup_form" class="form" action="signup" method="post">
         <div style="display: flex; justify-content: center">
-          <h2 class="form--title">
+          <h2 class="form-title">
             Sign up
           </h2>
         </div>
-        <div class="form--group">
-          <label class="form--label" for="signup_name">Display name</label>
-          <input class="form--input" type="text" id="signup_name" name="name" required>
-          <p class="form--group--error form--group--error-name">Account with this name is already exist</p>
+        <div class="form-group">
+          <label class="form-label" for="signup_name">Display name</label>
+          <input class="form-input" type="text" id="signup_name" name="name" required>
+          <p class="form-group__error form-group__error-name">Account with this name is already exist</p>
         </div>
 
-        <div class="form--group">
-          <label class="form--label" for="signup_email">Email</label>
-          <input class="form--input" type="email" id="signup_email" name="email" required>
-          <p class="form--group--error form--group--error-email">Account with this email is already exist</p>
+        <div class="form-group">
+          <label class="form-label" for="signup_email">Email</label>
+          <input class="form-input" type="email" id="signup_email" name="email" required>
+          <p class="form-group__error form-group__error-email">Account with this email is already exist</p>
         </div>
 
-        <div class="form--group">
-          <label class="form--label" for="signup_password">Password</label>
-          <input class="form--input" type="password"
+        <div class="form-group">
+          <label class="form-label" for="signup_password">Password</label>
+          <input class="form-input" type="password"
                  id="signup_password" name="email"
                  minlength="6" required>
         </div>
 
-        <div class="form--group">
-          <input class="form--join" type="submit" value="Sign up">
+        <div class="form-group">
+          <button class="form-submit" type="submit">Sign up</button>
         </div>
       </form>
     </div>

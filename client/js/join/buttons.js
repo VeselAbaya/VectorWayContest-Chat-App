@@ -3,17 +3,35 @@ import {elements} from "./elements"
 
 const signUp = () => {
   elements.formsWrapper.style.top = `${-2*462.5}px`;
-  elements.forms.style.height = '600px'
+  elements.forms.style.height = '600px';
+
+  elements.signUpForm.style.visibility = 'visible';
+  setTimeout(() => {
+    elements.joinForm.style.visibility = 'hidden';
+    elements.logInForm.style.visibility = 'hidden';
+  }, 300)
 };
 
 const logIn = () => {
   elements.forms.style.height = '462.5px';
-  elements.formsWrapper.style.top = `${-462.5}px`
+  elements.formsWrapper.style.top = `-462.5px`;
+
+  elements.logInForm.style.visibility = 'visible';
+  setTimeout(() => {
+    elements.joinForm.style.visibility = 'hidden';
+    elements.signUpForm.style.visibility = 'hidden';
+  }, 300)
 };
 
 const join = () => {
   elements.forms.style.height = '462.5px';
-  elements.formsWrapper.style.top = 0
+  elements.formsWrapper.style.top = 0;
+
+  elements.joinForm.style.visibility = 'visible';
+  setTimeout(() => {
+    elements.logInForm.style.visibility = 'hidden';
+    elements.signUpForm.style.visibility = 'hidden';
+  }, 300)
 };
 
 export const popup = {
