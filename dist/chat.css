@@ -42,7 +42,7 @@ ol {
 }
 
 /* STYLES */
-.menu__button {
+.menu-button {
     display: none;
 }
 
@@ -61,7 +61,7 @@ ol {
     );
 }
 
-.users--title {
+.users__title {
     margin-left: 10%;
     margin-top: 2%;
 
@@ -69,7 +69,7 @@ ol {
     filter: drop-shadow(0px 0px 3px rgb(244, 238, 243));
 }
 
-.users--list {
+.users__list {
     margin-top: 5%;
     padding-left: 15%;
     color: rgb(244, 238, 243);
@@ -89,7 +89,7 @@ ol {
     overflow-y: scroll;
 }
 
-.messages--list {
+.messages__list {
     list-style-type: none;
 }
 
@@ -112,14 +112,27 @@ ol {
     margin-top: 0.5%;
 }
 
-.chat--send {
+.chat__btn {
+    height: 70%;
+    width: 90%;
+    margin: auto;
+
+    color: rgb(244, 238, 243);
+    font-size: 16px;
+}
+
+.chat__btn:focus {
+    box-shadow: 0 0 15px rgb(130, 182, 237);
+}
+
+.chat__send {
     display: grid;
     grid-template-columns: 78% 8% 14%;
 
     background-color: rgb(231, 232, 238);
 }
 
-.chat--send--input {
+.chat__send-input {
     box-sizing: border-box;
     height: 70%;
     width: 98.1%;
@@ -129,47 +142,25 @@ ol {
     padding-left: 1%;
 }
 
-.chat--send--input:focus {
-
-}
-
-.chat--send--btn {
-    height: 70%;
-    width: 90%;
-    margin: auto;
-
-    color: rgb(244, 238, 243);
-    font-size: 16px;
-}
-
-.chat--send--location__btn {
-    height: 70%;
-    width: 90%;
-    margin: auto;
-
-    color: rgb(244, 238, 243);
-    font-size: 16px;
-}
-
 /* ADAPTIVE */
 @media (max-width: 927px) {
     .chat {
         grid-template-rows: 80% 20%;
     }
 
-    .chat--send {
+    .chat__send {
         grid-template-columns: 100%;
         grid-template-rows: 33.3% 33.3% 33.3%;
     }
 
-    .chat--send button {
+    .chat__send button {
         margin: 0;
 
         width: 100%;
         height: 100%;
     }
 
-    .chat--send--input {
+    .chat__send-input {
         margin: 0;
 
         width: 100%;
@@ -188,7 +179,7 @@ ol {
         transform: translateX(-13em);
     }
 
-    .menu__button {
+    .menu-button {
         display: block;
         position: absolute;
         transform: translateX(17.5em);
@@ -199,7 +190,7 @@ ol {
         background-color: transparent;
     }
 
-    .menu__button i {
+    .menu-button i {
         font-size: 2em;
     }
 }
