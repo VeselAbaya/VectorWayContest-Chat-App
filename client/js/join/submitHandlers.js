@@ -74,6 +74,7 @@ export const logInHandler = (event) => {
       elements.logOutBtn.style.display = 'block'
     })
     .catch(err => {
+      console.log(err);
       alert(err)
     })
 };
