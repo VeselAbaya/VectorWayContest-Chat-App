@@ -45,5 +45,22 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Login Form
-  elements.logInForm.addEventListener('submit', logInHandler)
+  elements.logInForm.addEventListener('submit', logInHandler);
+
+  const token = localStorage.getItem('token');
+  if (token) {
+    axios({
+      url: '/users/me',
+      method: 'get',
+      headers: {'x-auth': localStorage.getItem('token')}
+    }).then(res => {
+      elements.joinName.value = res.data.name;
+
+      // change "Log in" and "Sign up" button to "Log out" button
+      elements.popupSignUpBtn.style.display = 'none';
+      elements.popupLogInBtn.style.display = 'none';
+
+      elements.logOutBtn.style.display = 'block'
+    });
+  }
 });
